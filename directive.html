@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Directive Angular</title>
+    <script src="js/angular.min.js"></script>
+  </head>
+  <body>
+  <!-- Directive Repeat / Looping
+    <div ng-app="" ng-init="qty=1;cost=200;bio=[{name:'Jony',country:'Belanda'},{name:'Bobby',country:'Jerman'},{name:'Joko',country:'Indonesia'}]">
+      Quantity  : <input type="number" ng-model="qty">
+      Costs     : <input type="number" ng-model="cost">
+      Total in Dollar : {{qty * cost}}
+      <ul>
+        <li ng-repeat="x in bio">{{x.name +' : '+ x.country}}</li>
+      </ul>
+    </div>
+  -->
+  <div ng-app="myApp">
+  <!--  <test-directive></test-directive> -->
+  <!-- <div test-directive> -->
+  <!-- <div class="test-directive"></div> -->
+  <!-- directive: test-directive -->
+  <!--
+Keterangan :
+The legal restrict values are:
+
+E for Element name
+A for Attribute
+C for Class
+M for Comment
+By default the value is EA, meaning that both Element names and attribute names can invoke the directive.
+-->
+  </div>
+  </div>
+  <script type="text/javascript">
+    var app = angular.module("myApp",[]);
+    app.directive("testDirective",function(){
+      return {
+        restrict : "M",
+        replace : true,
+        template : "<h1>Made by a directive!</h1>"
+      };
+    });
+  </script>
+  </body>
+</html>

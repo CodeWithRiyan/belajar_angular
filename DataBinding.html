@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Data Binding</title>
+    <script src="js/angular.min.js"></script>
+  </head>
+  <body>
+    <div ng-app="myApp" ng-controller="changing">
+      <h1 ng-click="changeName()">{{firstname}}</h1>
+    </div>
+  </body>
+  <script type="text/javascript">
+    var app = angular.module("myApp",[]);
+    app.controller("changing",function($scope){
+      $scope.firstname = "Muhamad Riyan";
+      $scope.changeName = function(){
+        $scope.firstname = "Allaude";
+      }
+    });
+  </script>
+</html>

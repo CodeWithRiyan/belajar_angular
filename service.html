@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Angular Service</title>
+    <script src="js/angular.min.js">
+
+    </script>
+  </head>
+  <body>
+    <div ng-app="myApp" ng-controller="ctrl">
+      <h5>{{url}}</h5>
+      <p>{{welcome}}</p>
+      <p>Hello World will be change in 2 second</p>
+      <h3>{{header}}</h3>
+      <p>the time is</p>
+      <h2>{{time}}</h2>
+      <input type="text" ng-model="hexy">
+      <h5>{{255 | myHexa}}</h5>
+    </div>
+  </body>
+  <script type="text/javascript">
+  var app = angular.module("myApp",[]);
+  app.service('hexafy',function(){
+    this.Punk = function(x){
+      return x.toString(16);
+    }
+  });
+  app.filter('myHexa',['hexafy',function(hexafy){
+    return function(x){
+      return hexafy.Punk(x);
+    }
+  }]);
+  app.controller("ctrl",function($scope,$location,$http,$timeout,$interval,hexafy){
+    $scope.url = $location.absUrl();
+    $http.get("scope.html").then(function(response){
+      $scope.welcome = response.data;
+    });
+    $scope.header = "Hello World";
+    $timeout(function(){
+      $scope.header = "Hello Indonesia";
+    },2000);
+    $scope.time = new Date().toLocaleTimeString();
+    $interval(function(){
+      $scope.time = new Date().toLocaleTimeString();
+    });
+    $scope.hex = hexafy.Punk(50);
+  });
+  </script>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Expression</title>
+    <script type="text/javascript" src="js/angular.min.js">
+    </script>
+  </head>
+  <body>
+<div ng-app="" ng-init="Col='lightblue';qty=50;cost=2000;first='Joko';last=Widodo;object={barang:'Lemari'};point=[1,2,3]">
+  <!--<p>My First Expression : {{5+5}}</p> -->
+  <input style="background-color:{{Col}}" ng-model="Col" value="{{Col}}">
+  <p>Total nya adalah : {{qty * cost}}</p>
+  <p>Nama Lengkap Presiden adalah : {{first +" "+ last }}</p>
+  <p>Object yang dimaksud adalah : {{object.barang}}</p>
+  <p>Array Ke dua adalah : {{point[1]}}</p>
+  <p>Array ke tiga adalah <span ng-bind="point[2]"></span> </p>
+</div>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>DOM Angular</title>
+    <script src="js/angular.min.js"></script>
+  </head>
+  <body>
+    <div ng-app="" ng-init="mySwitch=true;tes=12">
+      <p>
+        <button ng-disabled="mySwitch">Click Me</button>
+      </p>
+      <p>
+        <input type="checkbox" ng-model="mySwitch">
+      </p>
+      <p>{{mySwitch}}</p>
+      <p ng-show="true">I am Visible</p>
+      <p ng-show="false">I am Invisible</p>
+      <p ng-show="tes < 13">I am Visible</p>
+    </div>
+  </body>
+</html>

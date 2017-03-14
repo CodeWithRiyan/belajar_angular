@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Model Angular</title>
+    <script src="js/angular.min.js"></script>
+    <style>
+    input.ng-invalid {
+        background-color: red;
+    }
+</style>
+  </head>
+  <body>
+    <!--
+    <div ng-app="NameApp" ng-controller="Names">
+      name : <input type="text" ng-model="name">
+      <p>Your Name is {{name}}</p>
+    </div>
+  -->
+  <!--Directive on model
+  ng-empty
+  ng-not-empty
+  ng-touched
+  ng-untouched
+  ng-valid
+  ng-invalid
+  ng-dirty
+  ng-pending
+  ng-pristine
+-->
+  <form ng-app="" name="myForm">
+    Email : <input type="email" name="emailAddress" ng-model="mail">
+    <span ng-show="myForm.emailAddress.$error.email">is Not Valid Email</span>
+    <h1>Status</h1>
+  <p>if Valid it will being true {{myForm.emailAddress.$valid}}</p>
+  <p>if model being change it will being true {{myForm.emailAddress.$dirty}}</p>
+  <p>if model being focus it will being true {{myForm.emailAddress.$touched}}</p>
+  </form>
+  </body>
+  <script type="text/javascript">
+    var app = angular.module("NameApp",[]);
+    app.controller("Names",function($scope){
+      $scope.name = "Riyan";
+    });
+  </script>
+</html>

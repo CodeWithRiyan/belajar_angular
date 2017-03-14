@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Scope</title>
+    <script src="js/angular.min.js"></script>
+  </head>
+  <body>
+<div ng-app="scope">
+<h1>{{name}}</h1>
+  <div ng-controller="scoopie">
+    <h5>{{name}}</h5>
+  </div>
+</div>
+  </body>
+  <script type="text/javascript">
+    var app = angular.module("scope",[]);
+    app.run(function($rootScope){
+      $rootScope.name = "Hello World";
+    });
+    app.controller("scoopie",function($scope){
+      $scope.name = "Hello Indonesia";
+    });
+  </script>
+</html>
